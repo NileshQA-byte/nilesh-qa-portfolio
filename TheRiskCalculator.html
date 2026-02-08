@@ -1,0 +1,23 @@
+<div style="border: 1px solid #ccc; padding: 20px; border-radius: 10px; background: #f9f9f9;">
+  <h3>🧪 QA Risk Priority Tool</h3>
+  <p>Select the impact and probability to determine test priority:</p>
+  
+  <label>Business Impact (1-5):</label>
+  <input type="number" id="impact" value="3" min="1" max="5"><br><br>
+  
+  <label>Probability of Failure (1-5):</label>
+  <input type="number" id="prob" value="3" min="1" max="5"><br><br>
+  
+  <button onclick="calculateRisk()">Calculate Priority</button>
+  <p id="result" style="font-weight: bold; color: blue;"></p>
+</div>
+
+<script>
+function calculateRisk() {
+  const i = document.getElementById('impact').value;
+  const p = document.getElementById('prob').value;
+  const score = i * p;
+  let priority = score > 15 ? "P1 (High - Automate Immediately)" : (score > 8 ? "P2 (Medium)" : "P3 (Low)");
+  document.getElementById('result').innerHTML = "Risk Score: " + score + " | Recommended Priority: " + priority;
+}
+</script>
