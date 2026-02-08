@@ -2,39 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nilesh Wadhwa | Senior SDET Portfolio</title>
     <style>
-        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: auto; padding: 20px; background-color: #f4f4f9; }
-        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        h1, h2 { color: #333; }
-        .tool-box { background: #e7f3ff; border: 2px solid #2196F3; padding: 20px; border-radius: 10px; }
-        button { background: #2196F3; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; max-width: 900px; margin: auto; padding: 20px; background-color: #f0f2f5; color: #333; }
+        .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 25px; border-top: 5px solid #2196F3; }
+        .award-card { border-top: 5px solid #ffd700; }
+        h1 { margin-bottom: 5px; color: #1a237e; }
+        .subtitle { font-size: 1.2em; color: #555; margin-bottom: 20px; }
+        .tool-box { background: #e3f2fd; border: 2px solid #2196F3; padding: 25px; border-radius: 12px; }
+        button { background: #2196F3; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+        button:hover { background: #1976D2; }
+        .skill-tag { display: inline-block; background: #eee; padding: 5px 12px; border-radius: 20px; margin: 4px; font-size: 0.9em; }
     </style>
 </head>
 <body>
 
     <h1>Nilesh Wadhwa</h1>
-    <p><strong>Senior SDET | 10.6+ Years Experience</strong> [cite: 1, 4]</p>
+    <div class="subtitle">Senior SDET | QA Lead | 10.6+ Years Experience</div>
 
     <div class="card">
         <h2>Professional Summary</h2>
         <ul>
-            <li>Over 10.6 years in Software Testing (Automation, Performance, Functional).</li>
-            <li>6+ years as a Test Lead managing daily QA activities[cite: 6].</li>
-            <li>Expertise in Android Automotive Device testing using Appium and Kotlin[cite: 8].</li>
-            <li>Proven track record at HERE Technologies, TIAA, and Bank of America[cite: 19, 37, 42].</li>
+            <li><strong>Expertise:</strong> Over 10.6 years in Software Testing across Automation, Performance, and Functional domains.</li>
+            <li><strong>Leadership:</strong> 6+ years as a Test Lead driving daily QA activities and timely delivery.</li>
+            <li><strong>Specialization:</strong> Hands-on experience in Android Automotive Device testing using Appium and Kotlin[cite: 8].</li>
+            <li><strong>Domain Knowledge:</strong> Deep experience in Banking, Insurance, GIS, and Automotive[cite: 12].</li>
+        </ul>
+        <h3>Core Skills</h3>
+        <div class="skill-tag">Selenium</div> <div class="skill-tag">Appium</div> <div class="skill-tag">Kotlin</div> 
+        <div class="skill-tag">Java</div> <div class="skill-tag">JMeter</div> <div class="skill-tag">CI/CD</div>
+        <div class="skill-tag">GitHub Co-pilot</div>
+    </div>
+
+    <div class="card award-card">
+        <h2>🏆 Awards & Recognition</h2>
+        <ul>
+            <li><strong>TIAA:</strong> Trophy and Titan Award for excellence in Money Movement projects[cite: 57].</li>
+            <li><strong>Bank of America:</strong> Multiple Silver and Bronze Awards for outstanding performance[cite: 58].</li>
+            <li><strong>LTI:</strong> Champ and Spot Awards for leadership and performance[cite: 59].</li>
         </ul>
     </div>
 
     <div class="card tool-box">
-        <h2>🧪 Live QA Utility: Risk-Based Priority Calculator</h2>
-        <p>This is a tool I use to help teams prioritize test cases during tight sprint cycles.</p>
+        <h2>🧪 QA Utility: Risk-Based Priority Calculator</h2>
+        <p>A strategic tool for Test Leads to prioritize automation and manual efforts during tight sprints.</p>
         <label>Business Impact (1-5):</label><br>
-        <input type="number" id="impact" value="3" min="1" max="5"><br><br>
+        <input type="number" id="impact" value="3" min="1" max="5" style="padding: 8px; width: 50px;"><br><br>
         <label>Probability of Failure (1-5):</label><br>
-        <input type="number" id="prob" value="3" min="1" max="5"><br><br>
+        <input type="number" id="prob" value="3" min="1" max="5" style="padding: 8px; width: 50px;"><br><br>
         <button onclick="calculateRisk()">Calculate Priority</button>
-        <p id="result" style="font-weight: bold; margin-top: 15px; color: #0d47a1;"></p>
+        <p id="result" style="font-weight: bold; margin-top: 15px; color: #0d47a1; font-size: 1.1em;"></p>
     </div>
 
     <script>
@@ -42,8 +60,8 @@
             const i = document.getElementById('impact').value;
             const p = document.getElementById('prob').value;
             const score = i * p;
-            let priority = score > 15 ? "P1 (Critical - Smoke Test)" : (score > 8 ? "P2 (High - Regression)" : "P3 (Low)");
-            document.getElementById('result').innerHTML = "Risk Score: " + score + " | Suggested Priority: " + priority;
+            let priority = score > 15 ? "P1 (Critical - Smoke/Sanity)" : (score > 8 ? "P2 (High - Regression)" : "P3 (Low - Backlog)");
+            document.getElementById('result').innerHTML = "Risk Score: " + score + " | Recommended Priority: " + priority;
         }
     </script>
 </body>
