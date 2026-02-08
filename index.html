@@ -1,23 +1,50 @@
-<div style="border: 1px solid #ccc; padding: 20px; border-radius: 10px; background: #f9f9f9;">
-  <h3>🧪 QA Risk Priority Tool</h3>
-  <p>Select the impact and probability to determine test priority:</p>
-  
-  <label>Business Impact (1-5):</label>
-  <input type="number" id="impact" value="3" min="1" max="5"><br><br>
-  
-  <label>Probability of Failure (1-5):</label>
-  <input type="number" id="prob" value="3" min="1" max="5"><br><br>
-  
-  <button onclick="calculateRisk()">Calculate Priority</button>
-  <p id="result" style="font-weight: bold; color: blue;"></p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nilesh Wadhwa | Senior SDET Portfolio</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: auto; padding: 20px; background-color: #f4f4f9; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        h1, h2 { color: #333; }
+        .tool-box { background: #e7f3ff; border: 2px solid #2196F3; padding: 20px; border-radius: 10px; }
+        button { background: #2196F3; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
 
-<script>
-function calculateRisk() {
-  const i = document.getElementById('impact').value;
-  const p = document.getElementById('prob').value;
-  const score = i * p;
-  let priority = score > 15 ? "P1 (High - Automate Immediately)" : (score > 8 ? "P2 (Medium)" : "P3 (Low)");
-  document.getElementById('result').innerHTML = "Risk Score: " + score + " | Recommended Priority: " + priority;
-}
-</script>
+    <h1>Nilesh Wadhwa</h1>
+    <p><strong>Senior SDET | 10.6+ Years Experience</strong> [cite: 1, 4]</p>
+
+    <div class="card">
+        <h2>Professional Summary</h2>
+        <ul>
+            <li>Over 10.6 years in Software Testing (Automation, Performance, Functional).</li>
+            <li>6+ years as a Test Lead managing daily QA activities[cite: 6].</li>
+            <li>Expertise in Android Automotive Device testing using Appium and Kotlin[cite: 8].</li>
+            <li>Proven track record at HERE Technologies, TIAA, and Bank of America[cite: 19, 37, 42].</li>
+        </ul>
+    </div>
+
+    <div class="card tool-box">
+        <h2>🧪 Live QA Utility: Risk-Based Priority Calculator</h2>
+        <p>This is a tool I use to help teams prioritize test cases during tight sprint cycles.</p>
+        <label>Business Impact (1-5):</label><br>
+        <input type="number" id="impact" value="3" min="1" max="5"><br><br>
+        <label>Probability of Failure (1-5):</label><br>
+        <input type="number" id="prob" value="3" min="1" max="5"><br><br>
+        <button onclick="calculateRisk()">Calculate Priority</button>
+        <p id="result" style="font-weight: bold; margin-top: 15px; color: #0d47a1;"></p>
+    </div>
+
+    <script>
+        function calculateRisk() {
+            const i = document.getElementById('impact').value;
+            const p = document.getElementById('prob').value;
+            const score = i * p;
+            let priority = score > 15 ? "P1 (Critical - Smoke Test)" : (score > 8 ? "P2 (High - Regression)" : "P3 (Low)");
+            document.getElementById('result').innerHTML = "Risk Score: " + score + " | Suggested Priority: " + priority;
+        }
+    </script>
+</body>
+</html>
